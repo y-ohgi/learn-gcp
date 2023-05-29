@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    environment:
+      - DD_SERVICE=hello
+      - DD_AGENT_HOST=datadog
+      - DD_ENV=local
+    volumes:
+      - .:/app:delegated
+    ports:
+      - "5050:5050"
+
+  datadog:
+    image: datadog/agent:7
+    environment:
+      - DD_API_KEY=${DD_API_KEY}
+      - DD_SITE=ap1.datadoghq.com
+      - DD_APM_ENABLED=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
