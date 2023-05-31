@@ -14,7 +14,7 @@ spec:
 
     spec:
       containers:
-        - image: asia-northeast1-docker.pkg.dev/learn-387812/learn/hello-py
+        - image: asia-northeast1-docker.pkg.dev/<PROJECT>/learn/hello-py
           name: app
           env:
             - name: DD_SERVICE
