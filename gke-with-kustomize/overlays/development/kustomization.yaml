@@ -1,0 +1,16 @@
+namespace: development
+
+commonLabels:
+  env: development
+
+resources:
+  - ../../base
+  - namespace.yaml
+
+patchesStrategicMerge:
+  - deployment.yaml
+
+images:
+  - name: nginx
+    newName: nginx
+    newTag: "1.24"

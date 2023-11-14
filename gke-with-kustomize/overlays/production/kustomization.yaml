@@ -1,0 +1,8 @@
+namespace: production
+
+commonLabels:
+  env: production
+
+resources:
+  - ../../base
+  - namespace.yaml
